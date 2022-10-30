@@ -28,10 +28,8 @@ fi
     touch /root/.ssh/authorized_keys
     echo "Добавляем ключ"
     echo "$files" >> /root/.ssh/authorized_keys
+    chmod 644 /root/.ssh/authorized_keys
+    chmod 700 /root/.ssh/
+    systemctl restart sshd
 fi
-#установить права на файл /root/.ssh/authorized_keys
-chmod 644 /root/.ssh/authorized_keys
-#установить права на директорию /root/.ssh/
-chmod 700 /root/.ssh/
-#перезаупустить сервис sshd
-systemctl restart sshd
+
