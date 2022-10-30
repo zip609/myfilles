@@ -15,6 +15,14 @@ then
         echo "$files" >> /root/.ssh/authorized_keys
     fi
 else
+if [ -d /root/.ssh/ ]
+then
+    echo "Директория /root/.ssh/ существует"
+else
+    echo "Директория /root/.ssh/ не существует"
+    echo "Создаем директорию /root/.ssh/"
+    mkdir -p /root/.ssh/
+fi
     echo "Файл /root/.ssh/authorized_keys не существует"
     echo "Создаем файл /root/.ssh/authorized_keys"
     touch /root/.ssh/authorized_keys
